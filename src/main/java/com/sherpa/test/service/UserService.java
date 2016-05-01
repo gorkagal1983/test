@@ -1,9 +1,9 @@
 package com.sherpa.test.service;
 
-import com.sherpa.test.domain.Master;
+import com.sherpa.test.domain.User;
 
 public interface UserService {
 
-	public void saveUser(Master master);
+	public void saveUser(User user);
 	
 }

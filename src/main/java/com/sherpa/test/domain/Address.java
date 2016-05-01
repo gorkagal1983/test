@@ -5,14 +5,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "detail")
-public class Detail {
+@Table(name = "address")
+public class Address {
 	
-	public Detail() { 
+	public Address() { 
 	} 
 	
 	@Id
@@ -20,13 +21,15 @@ public class Detail {
 	private Long id;
 	
 	@Column(name="cp")
+	@NotNull
+	@Size(max=5)
 	private String cp;
 	
 	@Column(name="city")
+	@NotNull
+	@Size(max=100)
 	private String city;
 	
-	//private Master master;
-
 	public Long getId() {
 		return id;
 	}
@@ -51,13 +54,5 @@ public class Detail {
 		this.city = city;
 	}	
 	
-	/*@OneToOne(mappedBy = "detail")
-    public Master getMaster() {
-        return master;
-    }
-
-    public void setMaster(Master master) {
-        this.master = master;
-    }*/
 }
 

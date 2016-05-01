@@ -8,15 +8,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "master")
-public class Master {
+@Table(name = "users")
+public class User {
 	
-	public Master() { 
+	public User() { 
 	} 
 	
-	public Master(long id, String username) {
+	public User(long id, String username) {
         this.id = id; 
         this.username = username; 
     }
@@ -26,11 +28,13 @@ public class Master {
 	private Long id;
 	
 	@Column(name="username")
+	@NotNull
+	@Size(max = 100)
 	private String username;
 	
 	@OneToOne
-	@JoinColumn(name="id_detail")
-	private Detail detail;
+	@JoinColumn(name="id_address")
+	private Address address;
 
 	public Long getId() {
 		return id;
@@ -48,11 +52,11 @@ public class Master {
 		this.username = username;
 	}	
 
-    public Detail getDetail() {
-        return detail;
+    public Address getAddress() {
+        return address;
     }
 
-    public void setDetail(Detail detail) {
-        this.detail = detail;
+    public void setAddress(Address address) {
+        this.address = address;
     }
 }
