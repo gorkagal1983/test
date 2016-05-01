@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sherpa.test.domain.Address;
@@ -24,7 +25,7 @@ public class UserController {
 	@Autowired
 	private UserService userService;
 	
-	@RequestMapping(value = "/create/{cp}/{username}")
+	@RequestMapping(value = "/create/{cp}/{username}",method = RequestMethod.GET)
     public User createUser(@PathVariable String cp,@PathVariable String username) throws Exception{
        
 	    User user = new User();
